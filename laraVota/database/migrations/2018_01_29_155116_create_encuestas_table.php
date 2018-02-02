@@ -17,10 +17,6 @@ class CreateEncuestasTable extends Migration
             $table->increments('id');
             $table->integer('idUsuario')->unsigned();
             $table->string('nombre');
-            $table->boolean('multirespuesta');
-            $table->string('descripcion');
-            $table->date('inicio');
-            $table->date('fin');
             $table->timestamps();
 
             $table->foreign('idUsuario')->references('id')->on('users')->onDelete('cascade');
