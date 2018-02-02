@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Encuestas;
 class EncuestasController extends Controller
 {
+  public function index(){
+    $arrayEncus = Encuestas::all();
+    return view( 'voto.index', array('arrayEncus'=>$arrayEncus));
+  }
   public function Create(){
     return view('voto.crearEncuestas');
   }
@@ -21,4 +25,11 @@ class EncuestasController extends Controller
     }
 
   }
+
+  public function show($id){
+  		$arrayEncus = Encuestas::find($id);
+    	return view('voto.listaEncuestas', array('id'=>$id, 'nombre'=>$arrayEncus));
+  	}
+
+
 }
